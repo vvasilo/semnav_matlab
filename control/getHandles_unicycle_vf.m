@@ -28,8 +28,11 @@ function [ode, out] = getHandles_unicycle_vf()
     out = @output_function;
     
     global pathTransformed
+    global pathGoalTransformed
     
     pathTransformed = [];
+    pathGoalTransformed = [];
+    GoalTransformed = [];
     
     function dy = unicycle_vf(t,y)
 
@@ -37,6 +40,9 @@ function [ode, out] = getHandles_unicycle_vf()
         global Map; % Workspace Model
         global Robot; % Robot Model
         global Goal; % Goal Location
+
+        % Set goal transformed equal to actual goal
+        GoalTransformed = Goal;
 
         % Robot Configuration
         RobotState = y(:)';
@@ -62,8 +68,10 @@ function [ode, out] = getHandles_unicycle_vf()
         switch flag
             case 'init'
                 pathTransformed = [pathTransformed ; [y(1) y(2) y(3)]];
+                pathGoalTransformed = [pathGoalTransformed ; GoalTransformed];
             case ''
                 pathTransformed = [pathTransformed ; [y(1) y(2) y(3)]];
+                pathGoalTransformed = [pathGoalTransformed ; GoalTransformed];
             case 'done'
 %                 assignin('base','pathTransformed',pathTransformed);
         end
