@@ -18,7 +18,7 @@ The doubly-reactive operations in the model space are based on the papers:
 The RRT-X implementation is adapted from [this](https://github.com/rahul-sb/RRTx) package.
 
 ## Getting started
-* Make sure that [semnav](https://github.com/vvasilo/semnav) is installed.
+* Make sure that [semnav](https://github.com/vvasilo/semnav) is downloaded on your machine (you don't have to necessarily install it).
 * Open [this](startup.m) script and:
     1. Modify your Python path (`path_python_ubuntu` or `path_python_mac`) depending on whether you work on Ubuntu or Mac.
     1. Modify the path to semnav (`path_semnav_ubuntu` or `path_semnav_mac`) depending on whether you work on Ubuntu or Mac.
